@@ -23,20 +23,22 @@ namespace Spor.Haberler.Com_Bot.VeriCek
                 var FutbolXpath = "//div[@class='hbTableSports hbColBoxFull piyasa']";
                 var FutbolX = document.DocumentNode.SelectNodes(FutbolXpath);
 
+                string deger = "//div[6]/div/div[2]/div/table/tbody/tr[";
+
                 foreach (var Futbol in FutbolX)
                 {
                     for (int i = 1; i <= 20; i++)
                     {
-                        string TakimSira = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[1]").InnerText;
-                        string TakimAD = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[2]/a").InnerText;
-                        string Takim_O = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[3]").InnerText;
-                        string Takim_G = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[4]").InnerText;
-                        string Takim_B = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[5]").InnerText;
-                        string Takim_M = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[6]").InnerText;
-                        string Takim_A = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[7]").InnerText;
-                        string Takim_Y = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[8]").InnerText;
-                        string Takim_Av = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[9]").InnerText;
-                        string Takim_P = Futbol.SelectSingleNode("//div[6]/div/div[2]/div/table/tbody/tr[" + i + "]/td[10]").InnerText;
+                        string TakimSira = Futbol.SelectSingleNode(deger + i + "]/td[1]").InnerText;
+                        string TakimAD = Futbol.SelectSingleNode(deger + i + "]/td[2]/a").InnerText;
+                        string Takim_O = Futbol.SelectSingleNode(deger + i + "]/td[3]").InnerText;
+                        string Takim_G = Futbol.SelectSingleNode(deger + i + "]/td[4]").InnerText;
+                        string Takim_B = Futbol.SelectSingleNode(deger + i + "]/td[5]").InnerText;
+                        string Takim_M = Futbol.SelectSingleNode(deger + i + "]/td[6]").InnerText;
+                        string Takim_A = Futbol.SelectSingleNode(deger + i + "]/td[7]").InnerText;
+                        string Takim_Y = Futbol.SelectSingleNode(deger + i + "]/td[8]").InnerText;
+                        string Takim_Av = Futbol.SelectSingleNode(deger + i + "]/td[9]").InnerText;
+                        string Takim_P = Futbol.SelectSingleNode(deger + i + "]/td[10]").InnerText;
 
                         TakimListesi.Add(new Futbol()
                         {

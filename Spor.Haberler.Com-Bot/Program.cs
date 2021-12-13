@@ -11,7 +11,7 @@ namespace Spor.Haberler.Com_Bot
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.Title = "haberler.com/spor Botu";
 
             Console.WriteLine(
