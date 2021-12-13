@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,74 +8,56 @@ using System.Threading.Tasks;
 
 namespace Spor.Haberler.Com_Bot
 {
-    class Class1
+    public static class Class1
     {
+        private static int sayi;
         public static void NewMethod()
         {
-            int sayi = Convert.ToInt32(Console.ReadLine());
+            sayi = int.Parse(Console.ReadLine());
 
             switch (sayi)
             {
                 case 1:
-                    Console.WriteLine("\n[ Almanya ] Bundesliga Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.BundesligaCek.SporBundesligaPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
+                    NewMethod("\n[ Almanya ] Bundesliga Puan Durumu Çekiliyor...\n", 3);
                     break;
                 case 2:
-                    Console.WriteLine("\n[ Fransa ] 1.Lig Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.Fransa1Lig.SporFransa1LigiPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
+                    NewMethod("\n[ Fransa ] 1.Lig Puan Durumu Çekiliyor...\n", 2);
                     break;
                 case 3:
-                    Console.WriteLine("\n[ İspanya ] La Liga Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.LaLigaCek.SporLaLigaPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
+                    NewMethod("\n[ İspanya ] La Liga Puan Durumu Çekiliyor...\n", 3);
                     break;
                 case 4:
-                    Console.WriteLine("\n[ İngiltere ] Premier Lig Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.PremierLigCek.SporPremierLigPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
+                    NewMethod("\n[ İngiltere ] Premier Lig Puan Durumu Çekiliyor...\n", 4);
                     break;
                 case 5:
-                    Console.WriteLine("\n[ Türkiye ] PTT 1.Lig Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.PTT1LigCek.SporPTT1LigPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
+                    NewMethod("\n[ Türkiye ] PTT 1.Lig Puan Durumu Çekiliyor...\n", 5);
                     break;
                 case 6:
-                    Console.WriteLine("\n[ İtalya ] Seria A Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.SeriaACek.SporSerieAPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
+                    NewMethod("\n[ İtalya ] Seria A Puan Durumu Çekiliyor...\n", 6);
                     break;
                 case 7:
-                    Console.WriteLine("\n[ Türkiye ] Süper Toto Süper Lig Puan Durumu Çekiliyor...\n");
-                    Thread.Sleep(2000);
-                    VeriCek.SuperTotoCek.SporSuperTotoPuanDurumuCek();
-                    Thread.Sleep(2000);
-                    Console.Write("\n\nSeçim yapınız : ");
-                    Class1.NewMethod();
-                    break;         
+                    NewMethod("\n[ Türkiye ] Süper Toto Süper Lig Puan Durumu Çekiliyor...\n", 7);
+                    break;
                 default:
                     Console.Write("Hatalı seçim yaptınız..");
                     break;
             }
+        }
+
+        private static void NewMethod(string baslik, int sayi)
+        {
+            Console.WriteLine(baslik);
+            Thread.Sleep(2000);
+            if (sayi == 1) { VeriCek.PuanDurumuCek.SporBundesligaPuanDurumuCek(); }
+            else if (sayi == 2) { VeriCek.PuanDurumuCek.SporFransa1LigiPuanDurumuCek(); }
+            else if (sayi == 3) { VeriCek.PuanDurumuCek.SporLaLigaPuanDurumuCek(); }
+            else if (sayi == 4) { VeriCek.PuanDurumuCek.SporPremierLigPuanDurumuCek(); }
+            else if (sayi == 5) { VeriCek.PuanDurumuCek.SporPTT1LigPuanDurumuCek(); }
+            else if (sayi == 6) { VeriCek.PuanDurumuCek.SporSerieAPuanDurumuCek(); } 
+            else if (sayi == 7) { VeriCek.PuanDurumuCek.SporSuperTotoPuanDurumuCek(); }
+            Thread.Sleep(2000);
+            Console.Write("\n\nSeçim yapınız : ");
+            Class1.NewMethod();
         }
     }
 }
